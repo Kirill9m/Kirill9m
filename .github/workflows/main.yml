@@ -25,4 +25,4 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add github-metrics.svg
           git commit -m "Update GitHub Metrics SVG" || echo "No changes to commit"
-          git push
+          git push https://${{ secrets.PAT_TOKEN }}@github.com/Kirill9m/Kirill9m.git HEAD:main
