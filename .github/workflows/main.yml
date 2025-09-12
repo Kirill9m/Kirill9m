@@ -15,7 +15,7 @@ jobs:
         uses: lowlighter/metrics@v3.26
         with:
           user: Kirill9m
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
           base: github
           filename: github-metrics.svg
 
