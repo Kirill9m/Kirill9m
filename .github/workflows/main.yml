@@ -16,7 +16,19 @@ jobs:
         with:
           user: Kirill9m
           token: ${{ secrets.PAT_TOKEN }}
-          base: github
           filename: github-metrics.svg
           committer_token: ${{ secrets.PAT_TOKEN }}
           committer_message: "Update GitHub Metrics SVG"
+
+          base: header, activity, community, repositories, metadata
+
+          plugin_isocalendar: yes 
+          plugin_languages: yes 
+          plugin_followup: yes 
+          plugin_stars: yes 
+          plugin_repositories: yes 
+          plugin_topics: yes 
+          plugin_lines: yes 
+          plugin_achievements: yes 
+          plugin_achievements_display: detailed
+          plugin_achievements_threshold: B 
