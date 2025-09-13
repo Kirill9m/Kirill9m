@@ -18,11 +18,5 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}
           base: github
           filename: github-metrics.svg
-
-      - name: Commit and Push Metrics
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add github-metrics.svg
-          git commit -m "Update GitHub Metrics SVG" || echo "No changes to commit"
-          git push https://${{ secrets.PAT_TOKEN }}@github.com/Kirill9m/Kirill9m.git HEAD:main
+          committer_token: ${{ secrets.PAT_TOKEN }}
+          committer_message: "Update GitHub Metrics SVG"
