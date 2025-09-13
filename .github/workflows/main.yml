@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Generate GitHub Metrics SVG
-        uses: lowlighter/metrics@v3.26
+        uses: lowlighter/metrics@latest
         with:
           user: Kirill9m
           token: ${{ secrets.PAT_TOKEN }}
