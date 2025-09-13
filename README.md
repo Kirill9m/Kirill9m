@@ -1,19 +1,19 @@
-Welcome to my GitHub profile! Here you can see my contributions, projects, and stats.
+Welcome to my GitHub profile!
 
 ---
 
-## 🌟 GitHub Metrics
+## GitHub Metrics
 
 ![Kirill's GitHub Metrics](./github-metrics.svg)
 
 ---
 
-## 🔗 Featured Projects
+## Featured Projects
 
 - **[Wordle Game](https://github.com/Kirill9m/react-wordle)** – React + Express + MongoDB, deployed on Azure, with authentication and player stats.
 
 ---
 
-## 📫 Contact Me
+## Contact Me
 
 - [LinkedIn](https://www.linkedin.com/in/kirill-savorin-399299328)
