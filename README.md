@@ -1,7 +1,3 @@
-Welcome to my GitHub profile!
-
----
-
 ## GitHub Metrics
 
 ![Kirill's GitHub Metrics](./github-metrics.svg)
