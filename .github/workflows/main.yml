@@ -6,13 +6,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v3
       - name: Generate GitHub Metrics SVG
         uses: lowlighter/metrics@latest
         with:
           user: Kirill9m
-          token: ${{ secrets.PAT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           filename: github-metrics.svg
           committer_token: ${{ secrets.PAT_TOKEN }}
           committer_message: "Update GitHub Metrics SVG"
