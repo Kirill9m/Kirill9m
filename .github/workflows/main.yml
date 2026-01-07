@@ -16,7 +16,6 @@ jobs:
           user: Kirill9m
           token: ${{ secrets.GITHUB_TOKEN }}
           filename: github-metrics.svg
-          committer_token: ${{ secrets.PAT_TOKEN }}
           committer_message: "Update GitHub Metrics SVG"
           
           base: header, activity, community, repositories, metadata
