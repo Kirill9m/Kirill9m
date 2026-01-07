@@ -6,9 +6,9 @@
 
 ## Featured Projects
 
-- **[dagbok.cloud](https://github.com/Kirill9m/react-wordle)** – Next.js + Java(Springboot) + MYSQL deployed with docker.
+- **[dagbok.cloud](https://dagbok.cloud)** – Next.js + Java(Springboot) + MYSQL deployed with docker - **[repo](https://github.com/Kirill9m/dagbok-next-boot)**
 
-- **[Wordle Game]([https://github.com/Kirill9m/react-wordle](https://github.com/Kirill9m/dagbok-next-boot))** – React + Express + MongoDB, deployed on Azure, with authentication and player stats.
+- **[Wordle Game](https://github.com/Kirill9m/react-wordle)** – React + Express + MongoDB, deployed on Azure, with authentication and player stats.
 
 ---
 
