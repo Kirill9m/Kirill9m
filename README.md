@@ -1,3 +1,6 @@
+# Fullstack developer (Next.js, TypeScript, Node.js, Spring Boot)
+ Open to contributing and internships.
+
 ## GitHub Metrics
 
 ![Kirill's GitHub Metrics](./github-metrics.svg)
