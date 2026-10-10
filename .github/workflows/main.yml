@@ -3,18 +3,21 @@ on:
   schedule:
     - cron: '0 0 * * 0'
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
       - name: Generate GitHub Metrics SVG
         uses: lowlighter/metrics@latest
         with:
           user: Kirill9m
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # Используем PAT с правами 'repo' вместо стандартного GITHUB_TOKEN:
+          token: ${{ secrets.METRICS_TOKEN }}
           filename: github-metrics.svg
           committer_message: "Update GitHub Metrics SVG"
           
@@ -24,6 +27,9 @@ jobs:
           repositories_affiliations: owner, collaborator, organization_member
           repositories_forks: yes
           
+          # Учитывать недавние коммиты из закрытых репозиториев
+          config_order: base.header, isocalendar, languages, topics, stars, lines
+          
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
           
@@ -31,6 +37,8 @@ jobs:
           plugin_languages_limit: 8
           plugin_languages_sections: most-used
           plugin_languages_details: bytes-size, percentage
+          # Анализировать языки глубже:
+          plugin_languages_analysis_timeout: 30
           
           plugin_stars: yes
           plugin_stars_limit: 4
@@ -40,4 +48,4 @@ jobs:
           
           plugin_lines: yes
           plugin_lines_sections: base
-          plugin_lines_repositories_limit: 4
+          plugin_lines_repositories_limit: 8
