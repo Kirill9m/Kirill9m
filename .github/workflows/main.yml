@@ -20,32 +20,35 @@ jobs:
           filename: github-metrics.svg
           committer_message: "Update GitHub Metrics SVG"
           
-          # Базовая статистика без долгого клонирования
+          # Базовая сводка
           base: header, activity, community, repositories, metadata
           repositories: 100
           repositories_affiliations: owner, collaborator, organization_member
           repositories_forks: yes
           
-          # Если коммитите с рабочей/другой почты — укажите её:
-          # commits_authoring: Kirill9m, your-work-email@example.com
+          config_order: base.header, isocalendar, followup, languages, habits
           
-          config_order: base.header, isocalendar, followup, languages, lines
-          
-          # Календарь
+          # Календарь активности
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
           
-          # Issues и Pull Requests (легковесный поиск через API)
+          # Все ваши Issues и PR (включая закрытые/приватные)
           plugin_followup: yes
           plugin_followup_sections: user, repositories
+          plugin_followup_archived: yes
           
-          # Языки (без глубокого обхода git history каждого файла)
+          # Языки (быстрый расчет без сканирования строк)
           plugin_languages: yes
           plugin_languages_sections: most-used
           plugin_languages_details: bytes-size, percentage
           plugin_languages_limit: 8
           
-          # Строки кода — строго ограничено, чтобы не висело 10+ минут
-          plugin_lines: yes
-          plugin_lines_sections: base
-          plugin_lines_repositories_limit: 4
+          # Привычки кодинга (заменяет зависающие lines: показывает недавние коммиты и ритм работы)
+          plugin_habits: yes
+          plugin_habits_from: 200
+          plugin_habits_days: 30
+          plugin_habits_facts: yes
+          plugin_habits_charts: yes
+          
+          # ВАЖНО: plugin_lines отключен, чтобы не вешать воркфлоу
+          plugin_lines: no
