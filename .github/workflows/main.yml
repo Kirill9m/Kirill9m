@@ -16,36 +16,39 @@ jobs:
         uses: lowlighter/metrics@latest
         with:
           user: Kirill9m
-          # Используем PAT с правами 'repo' вместо стандартного GITHUB_TOKEN:
           token: ${{ secrets.METRICS_TOKEN }}
           filename: github-metrics.svg
           committer_message: "Update GitHub Metrics SVG"
           
+          # 1. Глубокий обход коммитов во всех репозиториях
           base: header, activity, community, repositories, metadata
-          
+          base_indepth: yes
           repositories: 300
           repositories_affiliations: owner, collaborator, organization_member
           repositories_forks: yes
           
-          # Учитывать недавние коммиты из закрытых репозиториев
-          config_order: base.header, isocalendar, languages, topics, stars, lines
+          # Связывает коммиты по вашему логину и почте (если коммитили с локальным git config)
+          config_order: base.header, isocalendar, languages, lines, followup
           
+          # 2. Изометрический календарь со всеми активностями
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
           
+          # 3. Детальный учет языков по коммитам (включая приватные)
           plugin_languages: yes
+          plugin_languages_indepth: yes
           plugin_languages_limit: 8
           plugin_languages_sections: most-used
           plugin_languages_details: bytes-size, percentage
-          # Анализировать языки глубже:
-          plugin_languages_analysis_timeout: 30
+          plugin_languages_analysis_timeout: 60
           
-          plugin_stars: yes
-          plugin_stars_limit: 4
+          # 4. Плагин Follow-up: отображает статус Issues и Pull Requests
+          plugin_followup: yes
+          plugin_followup_sections: overview, user
+          plugin_followup_indepth: yes
           
-          plugin_topics: yes
-          plugin_topics_limit: 15
-          
+          # 5. Строки кода
           plugin_lines: yes
           plugin_lines_sections: base
           plugin_lines_repositories_limit: 8
+          plugin_lines_delay: 30
